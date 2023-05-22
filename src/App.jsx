@@ -3,7 +3,8 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useLocation
+  useLocation,
+  useNavigate
 } from 'react-router-dom';
 import styles from "./style";
 import Navbar from './components/Navbar';
@@ -15,15 +16,21 @@ import News from './pages/News';
 import About from './pages/About';
 
 const ScrollToTop = () => {
-  const { pathName } = useLocation();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   useEffect(()=> {
+    if (location.pathname === '/sensit') {
+      navigate('/');
+    }
     window.scrollTo(0,0);
-  }, [pathName])
+  }, [pathname])
 
   return null;
 }
 
 const App = () => {
+
+
   return (
     <div className="flex flex-col min-h-screen">
       <BrowserRouter>

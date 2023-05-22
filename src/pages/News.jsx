@@ -33,8 +33,6 @@ const News = () => {
   const [currentYear, setCurrentYear] = useState("All");
   const [filteredBlogs, setFilteredBlogs] = useState(sortedBlogs);
 
-  console.log(filteredBlogs)
-
   useEffect(() => {
     if (currentYear !== 'All') {
         setFilteredBlogs(

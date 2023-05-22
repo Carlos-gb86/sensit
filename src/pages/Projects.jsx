@@ -8,8 +8,6 @@ const getProjectAcronyms = (projects) => {
     return acronyms;
 }
 
-console.log(projects)
-
 const Projects = () => {
   const [currentAcronym, setCurrentAcronym] = useState('SensIT');
   const [currentProject, setCurrentProject] = useState(projects);
