@@ -18,8 +18,9 @@ import About from './pages/About';
 const ScrollToTop = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  console.log(pathname)
   useEffect(()=> {
-    if (location.pathname === '/sensit') {
+    if (location.pathname === '/sensit' || location.pathname === '/sensit/') {
       navigate('/');
     }
     window.scrollTo(0,0);
