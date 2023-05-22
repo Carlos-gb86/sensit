@@ -3,7 +3,7 @@ import styles from "../style";
 
 const Partners = () => {
   return (
-    <section className={`bg-gray-200 my-4`}>
+    <section className={`bg-gray-200`}>
         <h2 className="font-poppins font-semibold mx-auto pt-6 text-center text-[26px] sm:text-[40px]">SensIT - Partners</h2>
         <hr className="h-1 w-[120px] mx-auto my-6 bg-gray-200 border-0 dark:bg-gray-700"/>
         <div className={`${styles.flexCenter} flex-wrap w-full md:w-[80%] mx-auto`}>

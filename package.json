@@ -13,9 +13,13 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@formspree/react": "^2.4.1",
+    "@react-spring/core": "^9.7.2",
+    "@react-spring/web": "^9.7.2",
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.1"
   },

@@ -17,6 +17,7 @@ import ncc from "./NCC_logo.png";
 import wsp from "./WSP_logo.png";
 import thomas from "./Thomas_logo.png";
 import trafikverket from "./Trafikverket_logo.svg";
+import footbridge from "./footbridge.jpeg";
 
 
 
@@ -38,5 +39,6 @@ export {
  wsp,
  ncc,
  thomas,
- trafikverket
+ trafikverket,
+ footbridge,
 };
