@@ -28,7 +28,7 @@ const Contact = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <form 
         onSubmit={handleSubmit}
-        className="z-[5] w-4/5 md:w-1/2 lg:w-1/3 bg-gray-200 my-12 p-6 rounded-xl shadow-lg"
+        className="max-w-[500px] z-[5] w-4/5 md:w-1/2 lg:w-1/3 bg-gray-200 my-12 p-6 rounded-xl shadow-lg"
         autoComplete="nope"
       >
         <h2 className="mb-4 text-2xl font-bold text-center text-blue-500">Contact Us</h2>

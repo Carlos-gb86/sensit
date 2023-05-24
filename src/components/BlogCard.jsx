@@ -5,7 +5,7 @@ const BlogCard = ({ blog }) => {
     const shortDescription = `${description.substring(0, 100)}...`;
 
     return (
-        <div className="z-[5] overflow-hidden px-10 sm:px-20 md:px-60 my-8">
+        <div className="z-[5] overflow-hidden px-10 mx-auto my-8 max-w-[820px]">
             <div className="bg-white rounded-2xl w-full overflow-hidden">
                 <img alt="blog photo" className="max-h-40 w-full object-cover" src={image} />
                 <div className="bg-white w-full p-4">

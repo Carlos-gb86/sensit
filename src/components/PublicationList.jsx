@@ -22,8 +22,8 @@ const PublicationList = ({ filteredPublications, currentType }) => {
     return (
         <div className="p-6 flex-grow">
 
-            <div className="flex justify-between items-center mb-10">
-                <h2 className="font-poppins font-semibold text-2xl text-white ml-2 sm:ml-10 mb-3">{currentType}</h2>
+            <div className="flex justify-start items-center mb-10">
+                <h2 className="font-poppins font-semibold text-2xl text-white ml-2 sm:ml-10 mb-3 mr-6">{currentType}</h2>
                 <form className="w-64">   
                     <div className="relative">
                         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

@@ -18,7 +18,7 @@ import About from './pages/About';
 const ScrollToTop = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname)
+
   useEffect(()=> {
     if (location.pathname === '/sensit' || location.pathname === '/sensit/') {
       navigate('/');
@@ -41,13 +41,13 @@ const App = () => {
             <Navbar />
           </div>
         </div>
-        <Routes>
-          <Route path="/" element={ <Home /> } />
-          <Route path="projects" element={ <Projects /> } />
-          <Route path="publications" element={ <Publications /> } />
-          <Route path="news" element={ <News /> } />
-          <Route path="about" element={ <About /> } />
-        </Routes>
+          <Routes>
+            <Route path="/" element={ <Home /> } />
+            <Route path="projects" element={ <Projects /> } />
+            <Route path="publications" element={ <Publications /> } />
+            <Route path="news" element={ <News /> } />
+            <Route path="about" element={ <About /> } />
+          </Routes>
         <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
             <Footer />

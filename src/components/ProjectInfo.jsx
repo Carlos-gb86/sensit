@@ -10,7 +10,7 @@ const ProjectInfo = ({project}) => {
             <h2 className="font-poppins font-semibold text-2xl text-white ml-10 md:ml-4 mb-6">{project.name}</h2>
             
             <div className="flex flex-col md:flex-row">
-                <img className="object-cover w-full px-10 md:w-1/2 md:px-4" src={projectImage} alt={project.acronym} />
+                <img className="object-cover w-full px-10 md:w-1/2 md:px-4 max-h-[420px]" src={projectImage} alt={project.acronym} />
                 
                 <ul className="pl-10 md:pl-4 mt-4 md:mt-0 text-white">
                     <li className='pb-4'><span className="font-bold">Acronym:</span> {project.acronym}</li>
@@ -28,7 +28,7 @@ const ProjectInfo = ({project}) => {
   
             <div className="mt-4">
                 <h3 className="font-semibold text-xl mb-2 text-white pl-10 md:pl-4">Summary:</h3>
-                <p className='text-white pl-10 md:pl-4'>{project.summary}</p>
+                <p className='text-white text-justify pl-10 md:pl-4 w-full md:w-1/2'>{project.summary}</p>
             </div>
         </div>
     );
