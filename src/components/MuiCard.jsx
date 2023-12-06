@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaArrowDown, FaHeart, FaShare } from "react-icons/fa";
 
 export default function RecipeReviewCard({ blog }) {
   const [expanded, setExpanded] = useState(false);
@@ -11,11 +12,11 @@ export default function RecipeReviewCard({ blog }) {
   };
 
   return (
-    <div className="z-[5] overflow-hidden rounded mx-auto my-8 max-w-md bg-white">
+    <div className="z-[5] overflow-hidden rounded mx-auto my-8 w-[80%] xl:w-[900px] min-w-md bg-white">
       <div className="flex items-center p-2">
         <div className="flex-shrink-0">
           <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">
-            R
+            {category.charAt(0).toUpperCase()}
           </div>
         </div>
         <div className="ml-4">
@@ -38,8 +39,12 @@ export default function RecipeReviewCard({ blog }) {
       </div>
 
       <div className="px-6 pt-4 pb-2 flex">
-        <button className="text-gray-500 focus:outline-none">❤️</button>
-        <button className="text-gray-500 focus:outline-none ml-4">💻</button>
+        <button className="text-gray-500 focus:outline-none">
+          <FaHeart />
+        </button>
+        <button className="text-gray-500 focus:outline-none ml-4">
+          <FaShare />
+        </button>
         <button
           className={`transform flex-end ${
             expanded ? "rotate-180" : "rotate-0"
@@ -48,7 +53,7 @@ export default function RecipeReviewCard({ blog }) {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          v
+          <FaArrowDown />
         </button>
       </div>
 
