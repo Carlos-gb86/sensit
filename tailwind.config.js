@@ -20,6 +20,8 @@ export const theme = {
     md: "1060px",
     lg: "1200px",
     xl: "1700px",
+    xxl: "2560px",
+    xxxl: "3440px",
   },
 };
 export const plugins = [];

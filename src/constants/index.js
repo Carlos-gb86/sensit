@@ -1,31 +1,31 @@
-import { facebook, instagram, linkedin, twitter} from "../assets";
+import { facebook, instagram, linkedin, twitter } from "../assets";
 import { chalmers, ncc, wsp, thomas, trafikverket } from "../assets";
 
 export const navLinks = [
   {
     id: "home",
     title: "Home",
-    path: "/"
+    path: "/",
   },
   {
     id: "projects",
     title: "Projects",
-    path: "projects"
+    path: "projects",
   },
   {
     id: "publications",
     title: "Publications",
-    path: "publications"
+    path: "publications",
   },
   {
     id: "news",
     title: "News",
-    path: "news"
+    path: "news",
   },
   {
     id: "about",
     title: "About",
-    path: "about"
+    path: "about",
   },
 ];
 
@@ -33,27 +33,27 @@ export const partners = [
   {
     id: "partner-1",
     logo: chalmers,
-    link: "https://www.chalmers.se"
+    link: "https://www.chalmers.se",
   },
   {
     id: "partner-2",
     logo: ncc,
-    link: "https://www.ncc.se"
+    link: "https://www.ncc.se",
   },
   {
     id: "partner-3",
     logo: wsp,
-    link: "https://www.wsp.se"
+    link: "https://www.wsp.se",
   },
   {
     id: "partner-4",
     logo: thomas,
-    link: "https://thomasconcretegroup.com/se/"
+    link: "https://thomasconcretegroup.com/se/",
   },
   {
     id: "partner-5",
     logo: trafikverket,
-    link: "https://www.trafikverket.se/"
+    link: "https://www.trafikverket.se/",
   },
 ];
 
