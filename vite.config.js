@@ -8,7 +8,7 @@ export default defineConfig(({ command, mode }) => {
       react(),
     ],
     assetsInclude: ['**/*.jpg', '**/*.png', '**/*.svg', '**/*.gif'],
-    base: './sensit'
+    base: '/'
   }
 });
 

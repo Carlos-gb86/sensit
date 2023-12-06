@@ -20,9 +20,9 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(()=> {
-    if (location.pathname === '/sensit' || location.pathname === '/sensit/') {
-      navigate('/');
-    }
+    // if (location.pathname === '/sensit' || location.pathname === '/sensit/') {
+    //   navigate('/');
+    // }
     window.scrollTo(0,0);
   }, [pathname])
 
