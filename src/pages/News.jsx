@@ -48,6 +48,7 @@ sortedBlogs.sort((a, b) => {
 const News = () => {
   const [currentYear, setCurrentYear] = useState("All");
   const [filteredBlogs, setFilteredBlogs] = useState(sortedBlogs);
+  const [expanded, setExpanded] = useState(null);
 
   useEffect(() => {
     if (currentYear !== "All") {
@@ -64,6 +65,23 @@ const News = () => {
 
   const handleYearChange = (year) => setCurrentYear(year);
 
+  const handleExpandBlog = (blogKey) => {
+    if (expanded === blogKey) {
+      // If the same blog is clicked again, collapse it.
+      setExpanded(null);
+    } else {
+      // Expand the clicked blog.
+      setExpanded(blogKey);
+    }
+    // Ensure the DOM has been updated before attempting to scroll
+    setTimeout(() => {
+      const element = document.getElementById(`blog-${blogKey}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 0);
+  };
+
   return (
     <div className="relative flex-grow flex sm:flex-row flex-col-reverse bg-primary w-full">
       <div className="absolute z-[0] w-[20%] h-[15%] right-10 bottom-10 pink__gradient" />
@@ -76,9 +94,15 @@ const News = () => {
         currentType={currentYear}
         onTypeChange={handleYearChange}
       />
-      <div className="flex flex-col w-full">
+      <div className="flex flex-wrap justify-evenly content-start gap-4 mx-auto px-4 py-2">
         {filteredBlogs.map((blog) => (
-          <MuiCard key={blog.key} blog={blog} />
+          <MuiCard
+            key={blog.key}
+            id={`blog-${blog.key}`}
+            blog={blog}
+            expanded={expanded === blog.key}
+            handleExpandBlog={() => handleExpandBlog(blog.key)}
+          />
         ))}
       </div>
     </div>
