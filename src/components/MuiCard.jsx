@@ -1,9 +1,19 @@
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+} from "react-share";
+import { FaAngleDown, FaShare, FaRegTimesCircle } from "react-icons/fa";
 import { useState } from "react";
-import { FaAngleDown, FaShare } from "react-icons/fa";
 
 export default function MuiCard({ id, blog, expanded, handleExpandBlog }) {
+  const [isClicked, setIsClicked] = useState(false);
   const { title, description, category, date, image } = blog;
   const shortDescription = `${description.substring(0, 100)}...`;
+  const url = "https://www.thesensitproject.com/";
 
   return (
     <div
@@ -40,9 +50,34 @@ export default function MuiCard({ id, blog, expanded, handleExpandBlog }) {
         </div>
 
         <div className="flex px-6 pt-4 pb-2">
-          <button className="text-gray-500 focus:outline-none hover:text-blue-500">
-            <FaShare />
-          </button>
+          {isClicked ? (
+            <div className="flex space-x-2">
+              <button
+                className="text-gray-500 focus:outline-none hover:text-red-500"
+                onClick={() => setIsClicked(!isClicked)}
+              >
+                <FaRegTimesCircle />
+              </button>
+              <FacebookShareButton url={url} quote={title}>
+                <FacebookIcon size={24} round />
+              </FacebookShareButton>
+
+              <TwitterShareButton url={url} title={title}>
+                <TwitterIcon size={24} round />
+              </TwitterShareButton>
+
+              <LinkedinShareButton url={url}>
+                <LinkedinIcon size={24} round />
+              </LinkedinShareButton>
+            </div>
+          ) : (
+            <button
+              className="text-gray-500 focus:outline-none hover:text-blue-500"
+              onClick={() => setIsClicked(!isClicked)}
+            >
+              <FaShare />
+            </button>
+          )}
           <button
             className={`transform flex-end ${
               expanded ? "rotate-180" : "rotate-0"
