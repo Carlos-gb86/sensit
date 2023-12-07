@@ -1,38 +1,47 @@
 import { useState, useEffect } from "react";
 import SideNav from "../components/SideNav";
 import ProjectInfo from "../components/ProjectInfo";
-import { projects } from "../constants/projects";
-
-const getProjectAcronyms = (projects) => {
-  const acronyms = projects.map((project) => project.acronym);
-  return acronyms;
-};
+import { projectsR, projectsE } from "../constants/projects";
 
 const Projects = () => {
-  const [currentAcronym, setCurrentAcronym] = useState("SensIT");
-  const [currentProject, setCurrentProject] = useState(projects);
+  const initialAcronym = "SensIT";
+  const initialProject = projectsR.find(p => p.acronym === initialAcronym) 
+                     || projectsE.find(p => p.acronym === initialAcronym) 
+                     || {};
+
+  const [currentAcronym, setCurrentAcronym] = useState(initialAcronym);
+  const [currentProject, setCurrentProject] = useState(initialProject);
 
   useEffect(() => {
-    setCurrentProject(
-      projects.filter((project) => project.acronym === currentAcronym)
-    );
+    let foundProject = projectsR.find(project => project.acronym === currentAcronym)
+                    || projectsE.find(project => project.acronym === currentAcronym);
+
+    setCurrentProject(foundProject || {});
   }, [currentAcronym]);
 
   const handleProjectChange = (acronym) => setCurrentAcronym(acronym);
+console.log('projectsR acronyms:', projectsR.map(p => p.acronym));
+console.log('projectsE acronyms:', projectsE.map(p => p.acronym));
+
 
   return (
     <div className="relative flex-grow flex sm:flex-row flex-col-reverse bg-primary w-full">
-      <div className="absolute z-[0] w-[20%] h-[15%] right-10 bottom-10 pink__gradient" />
-      <div className="absolute z-[1] w-[40%] h-[40%] right-10 bottom-40 rounded-full white__gradient" />
-      <div className="absolute z-[0] w-[30%] h-[30%] right-20 bottom-20 blue__gradient" />
+      <div className="flex flex-col">
+        <SideNav
+          title="Research"
+          navList={projectsR.map((project) => project.acronym)}
+          currentType={currentAcronym}
+          onTypeChange={handleProjectChange}
+        />
+        <SideNav
+          title="Education"
+          navList={projectsE.map((project) => project.acronym)}
+          currentType={currentAcronym}
+          onTypeChange={handleProjectChange}
+        />
+      </div>
 
-      <SideNav
-        title="Projects"
-        navList={getProjectAcronyms(projects)}
-        currentType={currentAcronym}
-        onTypeChange={handleProjectChange}
-      />
-      <ProjectInfo project={currentProject[0]} />
+      <ProjectInfo project={currentProject} />
     </div>
   );
 };
