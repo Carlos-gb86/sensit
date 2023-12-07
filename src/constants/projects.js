@@ -21,7 +21,7 @@ export const projectsR = [
     efterspänning tros ge betydande förbättringar i byggtider, minskning av betongvolymer, lägre byggkostnader och ökad 
     hållbarhet över hela bygglivscykeln och värdekedjan. Det kan också leda till förbättringar av hälsa och säkerhet i 
     branschen genom att minska behovet av traditionella arbetsintensiva processer, såsom hanteringen av traditionell armering.`,
-    image: "sensitProject",
+    image: "postDOFS",
     link: "https://research.chalmers.se/en/project/11320",
   },
   {
