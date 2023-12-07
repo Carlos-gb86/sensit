@@ -12,7 +12,7 @@ export default function RecipeReviewCard({ blog }) {
   };
 
   return (
-    <div className="z-[5] overflow-hidden rounded mx-auto my-8 w-[80%] xl:w-[900px] min-w-md bg-white pb-2">
+    <div className="z-[5] overflow-hidden rounded mx-auto my-8 w-[80%] xl:w-[900px] min-w-md bg-green pb-2">
       <div className="flex items-center p-2">
         <div className="flex-shrink-0">
           <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">
