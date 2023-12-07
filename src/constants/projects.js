@@ -181,6 +181,5 @@ export const projectsE = [
     mainInstitution: "Chalmers",
     summary: `Understanding basic concepts and assumptions is a crucial step in the learning process of any subject, yet today it is not always achieved. A change of the current teaching method is suggested in this paper through the implementation of a new learning activity based on digital tools. The use of interactive tools has been shown to be an effective method in the field of medicine. Although less frequent, interactive tools could also be beneficial in the field of civil engineering, particularly in structural engineering, where real lab experiments are large, costly and time consuming. By building a small-scale interactive bridge model, the students can have access to a live experiment in the classroom, which enables them to put in practice the concepts learnt during the lectures. This tool seeks promoting a deeper understanding of the subject, thereby increasing the ability of the students to describe the different concepts and explain the physical meaning behind the analytical equations taught in structural engineering courses.`,
     image: "cyberbridge",
-    link: "https://research.chalmers.se/en/project/10422",
   },
 ];
