@@ -94,7 +94,7 @@ const News = () => {
         currentType={currentYear}
         onTypeChange={handleYearChange}
       />
-      <div className="flex flex-wrap justify-evenly content-start gap-4 mx-auto px-4 py-2">
+      <div className="flex flex-wrap justify-evenly content-start gap-4 mx-2 w-full px-4 py-2">
         {filteredBlogs.map((blog) => (
           <MuiCard
             key={blog.key}
