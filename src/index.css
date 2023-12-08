@@ -178,23 +178,16 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s;
+  z-index: 10;
+  /* Ensure it's above other content */
 }
 
-.overlay.visible {
-  visibility: visible;
-  opacity: 1;
-}
-
-.overlay img {
-  max-height: 90%;
-  max-width: 90%;
+.overlay-content {
+  position: relative;
 }

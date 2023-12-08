@@ -17,7 +17,7 @@ const ProjectInfo = ({ project }) => {
   useEffect(() => {
     const loadImages = async () => {
       // Import all image files from the parent directory and subdirectories
-      const imageModules = import.meta.globEager('../assets/projectImages/**/*.+(jpg|jpeg|png)');
+      const imageModules = import.meta.globEager('../assets/projectImages/**/*.+(jpg|jpeg|png|mp4)');
 
       const paths = Object.entries(imageModules)
         .filter(([path, _]) => path.includes(`/${project.acronym}/`)) // Filter by project acronym
