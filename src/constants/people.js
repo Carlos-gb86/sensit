@@ -43,4 +43,14 @@ export const users = [
     linkedinUrl: "https://www.linkedin.com/in/august-jansson-6b5235161/",
     researchGateUrl: "https://www.researchgate.net/profile/August-Jansson-2",
   },
+  {
+    name: "David Dackman",
+    jobTitle: "Industrial PhD Student",
+    description: `David is the PhD student leading the research for the Sensit Linda project
+                             at Chalmers University of Technology and WSP.`,
+    image:
+      "https://www.chalmers.se/_next/image/?url=https%3A%2F%2Fcms.www.chalmers.se%2FMedia%2Fld2fm0v2%2Fdavidda.jpg%3Fwidth%3D600%26height%3D600%26rnd%3D133260636571470000%26quality%3D60%26format%3Dwebp&w=3840&q=75"    githubUrl: "https://github.com/johndoe",
+    linkedinUrl: "https://www.linkedin.com/in/august-jansson-6b5235161/",
+    researchGateUrl: "https://www.researchgate.net/profile/August-Jansson-2",
+  },
 ];
