@@ -8,6 +8,7 @@ const ProjectInfo = ({ project }) => {
     "src/assets/galleryImages/postDOFS.jpg",
     // Add more image URLs as needed
   ];
+const projectImage = projectImages[project.image];
 
   // Sample long content for the Publications section
   const longContent =
