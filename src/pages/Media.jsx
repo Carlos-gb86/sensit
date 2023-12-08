@@ -1,76 +1,81 @@
-import React from 'react';
+import { useState, useEffect } from "react";
+import SideNav from "../components/SideNav";
+import { projectsR, projectsE } from "../constants/projects";
 
-export default function ImageGrid() {
-   const items = [
-    {
-      id: 1,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-    {
-      id: 2,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-    {
-      id: 3,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-    {
-      id: 4,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-    {
-      id: 5,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-  ];
-  return (
-    <>
-      <div
-        name=''
-        className='bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-screen text-center md:text-left'
-      >
-        <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
-          <div className='pb-8'>
-            <p className='text-4xl font-bold inline border-b-4 border-gray-500'>
-Title            </p>
-            <p className='py-6'>subtitle</p>
-          </div>
+const Media = () => {
+  const initialAcronym = "SensIT";
+  const initialProject = projectsR.find(p => p.acronym === initialAcronym) 
+                     || projectsE.find(p => p.acronym === initialAcronym) 
+                     || {};
 
-          <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5'>
-            {items.map(({ id, src, link }) => (
-              <div
-                key={id}
-                className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
-              >
-                <img
-                  src={src}
-                  alt=''
-                  className='rounded-md duration-200 hover:scale-105'
-                />
-                <div className='flex items-center justify-center'>
-                  <button
-                    className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105'
-                    onClick={() => window.open(link, '_blank')}
-                  >
-                    button
-                  </button>
-                  <button
-                    className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105'
-                    onClick={() => window.open(link, '_blank')}
-                  >
-                    button
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+  const [currentAcronym, setCurrentAcronym] = useState(initialAcronym);
+  const [currentProject, setCurrentProject] = useState(initialProject);
+
+  useEffect(() => {
+    let foundProject = projectsR.find(project => project.acronym === currentAcronym)
+                    || projectsE.find(project => project.acronym === currentAcronym);
+
+    setCurrentProject(foundProject || {});
+  }, [currentAcronym]);
+
+  const handleProjectChange = (acronym) => setCurrentAcronym(acronym);
+  
+  const [galleryItems, setGalleryItems] = useState([]);
+
+  useEffect(() => {
+    const combinedProjects = [...projectsR, ...projectsE]; // Combine both project arrays
+
+    const loadImages = async () => {
+      let items = [];
+      const imageModules = import.meta.globEager('../assets/projectImages/**/*.+(jpg|jpeg|png)');
+
+      combinedProjects.forEach(project => {
+        const projectImages = Object.entries(imageModules)
+          .filter(([path, _]) => path.includes(`/${project.acronym}/`)) // Filter by project acronym
+          .map(([path, module], index) => ({
+            id: index, // Unique ID, combining acronym and index
+            src: module.default,
+            project: project.acronym
+          }));
+
+        items = [...items, ...projectImages];
+      });
+
+      setGalleryItems(items);
+    };
+
+    loadImages();
+  }, []); // Empty dependency array as the projects are static
+
+  console.log(setGalleryItems)
+
+ return (
+    <div className="relative flex-grow sm:flex bg-primary w-full">
+      {/* Left Side Navigation */}
+      <div className="flex flex-col">
+        <SideNav
+          title="Research"
+          navList={projectsR.map((project) => project.acronym)}
+          currentType={currentAcronym}
+          onTypeChange={handleProjectChange}
+        />
+        <SideNav
+          title="Education"
+          navList={projectsE.map((project) => project.acronym)}
+          currentType={currentAcronym}
+          onTypeChange={handleProjectChange}
+        />
       </div>
-    </>
+
+      {/* Right Side Content */}
+      <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5'>
+        {galleryItems.map(({ id, src }) => (
+        <div key={id} className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'>
+          <img src={src} alt='' className='rounded-md duration-200 hover:scale-105' />
+        </div>
+        ))}
+      </div>
+    </div>
   );
-}
+};
+export default Media;

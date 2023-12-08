@@ -3,21 +3,6 @@ import SideNav from "../components/SideNav";
 import ProjectInfo from "../components/ProjectInfo";
 import { projectsR, projectsE } from "../constants/projects";
 
-  const images = [
-    "src/assets/galleryImages/cyberbridge.png",
-    "src/assets/galleryImages/cyberbridge.png",
-    "src/assets/galleryImages/cyberbridge.png",
-    "src/assets/galleryImages/cyberbridge.png",
-  ];
-    const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-    // additional settings as needed
-  };
-
 const Projects = () => {
   const initialAcronym = "SensIT";
   const initialProject = projectsR.find(p => p.acronym === initialAcronym) 
