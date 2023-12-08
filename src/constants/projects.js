@@ -91,14 +91,23 @@ export const projectsR = [
     founder: "Trafikverket",
     mainInstitution: "Chalmers",
     partners: ["Kungliga Tekniska Högskola"],
-    summary: `Projektets syfte är att bidra till framtagandet av metoder för 
-        informationsinhämtning via sensorer som kan användas för att
-        prognostisera och verifiera tekniska funktionskrav med hjälp av Artificiell intelligens.
-        Utgångspunkten och bakgrund är tunnelinfattningar av fiberarmerad sprutbetong. 
-        Konstruktionen utgörs av ett komplext material och det saknas ofta detaljerad 
-        information om kringliggande berg. Materialet och berget är i samverkan det 
-        bärande systemet som sammantaget ger en osäkerhet om dess funktion.`,
-    image: "sensit2Project",
+    summary: `Monitoring of tunnels during construction is vital to increase the safety
+                             of working personel and required in order to validate design assumptions and the stability
+                             of the structure. In hard rock conditions, shotcrete in combination with rock bolts
+                             is the most commonly used support system, where the rock bolts fasten larger rock blocks
+                             to the underlying rock and the shotcrete lining is subjected to block loads and loos rock
+                             mass occuring between rock bolts. Conventional monitoring techniques used today such as
+                             total stations, inclinometers and strain gauges offer discrete measurement points which
+                             are used monitor convergence and pointwise utilization of strains in the lining. However,
+                             the conventional monitoring techniques are not capable of detecting loads on the shotcrete
+                             lining and due to few discrete measurement points, the convergence is often require
+                             interpolation over large distances. By installing Distributed Optical Fibre Sensors in
+                             the shotcrete lining, distributed strain profiles of the entire lining section can be
+                             used to calculate a more precis convergence and loads acting on the lining can be
+                             detected. Further, the project aims to develop a database including both experimental
+                             and artificially generated data through non-linear finite element modelling, which
+                             will be used to train a machine-learning algorithm that is able to predict and
+                             assess the structural integrity of the shotcrete tunnel lining.`,
     link: "https://research.chalmers.se/en/project/10422",
   },
   {

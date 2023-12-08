@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import SideNav from "../components/SideNav";
 import ProjectInfo from "../components/ProjectInfo";
 import { projectsR, projectsE } from "../constants/projects";
-import Slider from 'react-slick';
 
   const images = [
     "src/assets/galleryImages/cyberbridge.png",
@@ -58,23 +57,6 @@ const Projects = () => {
       {/* Right Side Content */}
       <div className="flex-grow flex flex-col">
         <ProjectInfo project={currentProject} />
-
-        {/* Separator line */}
-      <hr className="flex-grow border-gray-300 my-5"></hr>
-
-      <div className="flex-grow my-5">
-         <Slider {...carouselSettings}>
-            {images.map((img, idx) => (
-              <div key={idx}>
-                <img src={img} alt={`Slide ${idx}`} className="w-full" />
-              </div>
-            ))}
-          </Slider>
-
-      </div>
-
-
-
       </div>
     </div>
   );
