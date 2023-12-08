@@ -1,76 +1,88 @@
-import React from 'react';
+import { useState, useEffect } from "react";
+import SideNav from "../components/SideNav";
+import BlogCard from "../components/BlogCard";
+import MuiCard from "../components/MuiCard";
+import { blogs } from "../constants/blogs";
 
-export function ImageGrid() {
-   const items = [
-    {
-      id: 1,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-    {
-      id: 2,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-    {
-      id: 3,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-    {
-      id: 4,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
-    {
-      id: 5,
-      src: 'https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'link here',
-    },
+function getBlogYears(blogs) {
+  // Extract years from dates and remove duplicates
+  let years = [
+    ...new Set(
+      blogs.map((blog) => new Date(blog.date.split("-")[2]).getFullYear())
+    ),
   ];
-  return (
-    <>
-      <div
-        name=''
-        className='bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-screen text-center md:text-left'
-      >
-        <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
-          <div className='pb-8'>
-            <p className='text-4xl font-bold inline border-b-4 border-gray-500'>
-Title            </p>
-            <p className='py-6'>subtitle</p>
-          </div>
 
-          <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5'>
-            {items.map(({ id, src, link }) => (
-              <div
-                key={id}
-                className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'
-              >
-                <img
-                  src={src}
-                  alt=''
-                  className='rounded-md duration-200 hover:scale-105'
-                />
-                <div className='flex items-center justify-center'>
-                  <button
-                    className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105'
-                    onClick={() => window.open(link, '_blank')}
-                  >
-                    button
-                  </button>
-                  <button
-                    className='w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105'
-                    onClick={() => window.open(link, '_blank')}
-                  >
-                    button
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </>
-  );
+  // Sort years in descending order
+  years.sort((a, b) => b - a);
+
+  years.unshift("All");
+
+  return years;
 }
+
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const sortedBlogs = [...blogs];
+sortedBlogs.sort((a, b) => {
+  const [dayA, monthA, yearA] = a.date.split("-");
+  const [dayB, monthB, yearB] = b.date.split("-");
+
+  const dateA = new Date(yearA, monthNames.indexOf(monthA), dayA);
+  const dateB = new Date(yearB, monthNames.indexOf(monthB), dayB);
+
+  return dateB - dateA; // for descending order
+});
+
+const News = () => {
+  const [currentYear, setCurrentYear] = useState("All");
+  const [filteredBlogs, setFilteredBlogs] = useState(sortedBlogs);
+
+  useEffect(() => {
+    if (currentYear !== "All") {
+      setFilteredBlogs(
+        sortedBlogs.filter((blog) => {
+          const [day, month, year] = blog.date.split("-");
+          return parseInt(year) === currentYear;
+        })
+      );
+    } else {
+      setFilteredBlogs(sortedBlogs);
+    }
+  }, [currentYear]);
+
+  const handleYearChange = (year) => setCurrentYear(year);
+
+  return (
+    <div className="relative flex-grow flex sm:flex-row flex-col-reverse bg-primary w-full">
+      <div className="absolute z-[0] w-[20%] h-[15%] right-10 bottom-10 pink__gradient" />
+      <div className="absolute z-[1] w-[40%] h-[40%] right-10 bottom-40 rounded-full white__gradient" />
+      <div className="absolute z-[0] w-[30%] h-[30%] right-20 bottom-20 blue__gradient" />
+
+      <SideNav
+        title="Year"
+        navList={getBlogYears(blogs)}
+        currentType={currentYear}
+        onTypeChange={handleYearChange}
+      />
+      <div className="flex flex-col w-full">
+        {filteredBlogs.map((blog) => (
+          <MuiCard key={blog.key} blog={blog} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default News;
