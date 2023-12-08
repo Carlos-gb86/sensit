@@ -20,8 +20,8 @@ export default function MuiCard({ id, blog, expanded, handleExpandBlog }) {
       id={id}
       className={
         expanded
-          ? "z-[5] flex flex-col overflow-hidden rounded my-2 mb-20 mx-8 w-[60%] bg-white"
-          : "z-[5] flex flex-col overflow-hidden rounded my-2 mb-20 mx-8 w-[80%] sm:w-1/2 lg:w-1/3 xl:w-1/4 bg-white"
+          ? "z-[5] flex flex-col overflow-hidden rounded my-2 mb-20 mx-8 w-[80%] mx-[10%] sm:w-[70%] sm:mx-[15%] lg:w-[60%] lg:mx-[20%] xl:w-[50%] xl:mx-[25%] bg-white"
+          : "z-[5] flex flex-col overflow-hidden rounded my-2 mb-20 mx-8 w-[80%] sm:w-[70%] lg:w-[34%] xl:w-1/4 bg-white"
       }
     >
       <div className="flex items-center p-2">
