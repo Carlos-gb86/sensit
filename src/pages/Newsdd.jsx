@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import SideNav from "../components/SideNav";
+import BlogCard from "../components/BlogCard";
+import MuiCard from "../components/MuiCard";
 import { blogs } from "../constants/blogs";
 
 function getBlogYears(blogs) {
@@ -69,7 +71,7 @@ const News = () => {
       <div className="absolute z-[0] w-[30%] h-[30%] right-20 bottom-20 blue__gradient" />
 
       <SideNav
-        title="Gallery"
+        title="Year"
         navList={getBlogYears(blogs)}
         currentType={currentYear}
         onTypeChange={handleYearChange}

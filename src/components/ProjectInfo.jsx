@@ -29,8 +29,6 @@ const ProjectInfo = ({ project }) => {
     loadImages();
   }, [project.acronym]);
 
-console.log(imageUrls); 
-
   // const projectImage = projectImages[project.image];
 
   // Sample long content for the Publications section
