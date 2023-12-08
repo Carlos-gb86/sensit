@@ -2,6 +2,22 @@ import { useState, useEffect } from "react";
 import SideNav from "../components/SideNav";
 import ProjectInfo from "../components/ProjectInfo";
 import { projectsR, projectsE } from "../constants/projects";
+import Slider from 'react-slick';
+
+  const images = [
+    "src/assets/galleryImages/cyberbridge.png",
+    "src/assets/galleryImages/cyberbridge.png",
+    "src/assets/galleryImages/cyberbridge.png",
+    "src/assets/galleryImages/cyberbridge.png",
+  ];
+    const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+    // additional settings as needed
+  };
 
 const Projects = () => {
   const initialAcronym = "SensIT";
@@ -20,12 +36,10 @@ const Projects = () => {
   }, [currentAcronym]);
 
   const handleProjectChange = (acronym) => setCurrentAcronym(acronym);
-console.log('projectsR acronyms:', projectsR.map(p => p.acronym));
-console.log('projectsE acronyms:', projectsE.map(p => p.acronym));
 
-
-  return (
-    <div className="relative flex-grow flex sm:flex-row flex-col-reverse bg-primary w-full">
+ return (
+    <div className="relative flex-grow sm:flex bg-primary w-full">
+      {/* Left Side Navigation */}
       <div className="flex flex-col">
         <SideNav
           title="Research"
@@ -41,9 +55,28 @@ console.log('projectsE acronyms:', projectsE.map(p => p.acronym));
         />
       </div>
 
-      <ProjectInfo project={currentProject} />
+      {/* Right Side Content */}
+      <div className="flex-grow flex flex-col">
+        <ProjectInfo project={currentProject} />
+
+        {/* Separator line */}
+      <hr className="flex-grow border-gray-300 my-5"></hr>
+
+      <div className="flex-grow my-5">
+         <Slider {...carouselSettings}>
+            {images.map((img, idx) => (
+              <div key={idx}>
+                <img src={img} alt={`Slide ${idx}`} className="w-full" />
+              </div>
+            ))}
+          </Slider>
+
+      </div>
+
+
+
+      </div>
     </div>
   );
 };
-
 export default Projects;

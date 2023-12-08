@@ -35,10 +35,15 @@ const ProjectInfo = ({project}) => {
                         <li><span className="font-bold">Project Page:</span> <a className="text-blue-500 hover:underline" href={project.link} target="_blank" rel="noreferrer">{project.link}</a></li>}
                 </ul>
             </div>
-  
-            <div className="mt-4">
+            <div className="flex flex-col md:flex-row">
+            <div className="mt-4 pr-4">
                 <h3 className="font-semibold text-xl mb-2 text-white pl-10 md:pl-4">Summary:</h3>
-                <p className='text-white text-justify pl-10 md:pl-4 w-full md:w-1/2'>{project.summary}</p>
+                <p className='text-white text-justify pl-10 md:pl-4 w-full'>{project.summary}</p>
+            </div>
+            <div className="mt-4 pr-4 overflow-y-scroll">
+                <h3 className="font-semibold text-xl mb-2 text-white pl-10 md:pl-4">Publications:</h3>
+                <p className='text-white text-justify pl-10 md:pl-4 w-full'>{project.summary }</p>
+            </div>
             </div>
         </div>
     );
