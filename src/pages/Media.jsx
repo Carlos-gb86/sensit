@@ -3,79 +3,97 @@ import SideNav from "../components/SideNav";
 import { projectsR, projectsE } from "../constants/projects";
 
 const Media = () => {
-  const initialAcronym = "SensIT";
-  const initialProject = projectsR.find(p => p.acronym === initialAcronym) 
-                     || projectsE.find(p => p.acronym === initialAcronym) 
-                     || {};
+    const allProjects = [{ acronym: "All", name: "All Media" }, ...projectsR, ...projectsE];
 
-  const [currentAcronym, setCurrentAcronym] = useState(initialAcronym);
-  const [currentProject, setCurrentProject] = useState(initialProject);
+    const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+    const [selectedMedia, setSelectedMedia] = useState(null);
 
-  useEffect(() => {
-    let foundProject = projectsR.find(project => project.acronym === currentAcronym)
-                    || projectsE.find(project => project.acronym === currentAcronym);
-
-    setCurrentProject(foundProject || {});
-  }, [currentAcronym]);
-
-  const handleProjectChange = (acronym) => setCurrentAcronym(acronym);
-  
-  const [galleryItems, setGalleryItems] = useState([]);
-
-  useEffect(() => {
-    const combinedProjects = [...projectsR, ...projectsE]; // Combine both project arrays
-
-    const loadImages = async () => {
-      let items = [];
-      const imageModules = import.meta.globEager('../assets/projectImages/**/*.+(jpg|jpeg|png)');
-
-      combinedProjects.forEach(project => {
-        const projectImages = Object.entries(imageModules)
-          .filter(([path, _]) => path.includes(`/${project.acronym}/`)) // Filter by project acronym
-          .map(([path, module], index) => ({
-            id: index, // Unique ID, combining acronym and index
-            src: module.default,
-            project: project.acronym
-          }));
-
-        items = [...items, ...projectImages];
-      });
-
-      setGalleryItems(items);
+    const handleMediaClick = (media) => {
+        setSelectedMedia(media);
+        setIsOverlayVisible(true);
     };
 
-    loadImages();
-  }, []); // Empty dependency array as the projects are static
+    const closeOverlay = () => {
+        setIsOverlayVisible(false);
+        setSelectedMedia(null);
+    };
 
-  console.log(setGalleryItems)
+    const handleOverlayContentClick = (e) => {
+        e.stopPropagation();
+    };
 
- return (
-    <div className="relative flex-grow sm:flex bg-primary w-full">
-      {/* Left Side Navigation */}
-      <div className="flex flex-col">
-        <SideNav
-          title="Research"
-          navList={projectsR.map((project) => project.acronym)}
-          currentType={currentAcronym}
-          onTypeChange={handleProjectChange}
-        />
-        <SideNav
-          title="Education"
-          navList={projectsE.map((project) => project.acronym)}
-          currentType={currentAcronym}
-          onTypeChange={handleProjectChange}
-        />
-      </div>
+    const [currentAcronym, setCurrentAcronym] = useState("All");
+    const [galleryItems, setGalleryItems] = useState([]);
 
-      {/* Right Side Content */}
-      <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5'>
-        {galleryItems.map(({ id, src }) => (
-        <div key={id} className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'>
-          <img src={src} alt='' className='rounded-md duration-200 hover:scale-105' />
+    useEffect(() => {
+        let items = [];
+        const mediaModules = import.meta.globEager('../assets/projectImages/**/*.+(jpg|jpeg|png|mp4)');
+
+        allProjects.forEach(project => {
+            const projectMedia = Object.entries(mediaModules)
+                .filter(([path, _]) => path.includes(`/${project.acronym}/`))
+                .map(([path, module], index) => ({
+                    id: project.acronym + '_' + index,
+                    src: module.default,
+                    project: project.acronym,
+                    type: path.endsWith('.mp4') ? 'video' : 'image'
+                }));
+
+            items = [...items, ...projectMedia];
+        });
+
+        setGalleryItems(items);
+    }, []);
+
+    const filteredGalleryItems = currentAcronym === "All" 
+        ? galleryItems 
+        : galleryItems.filter(item => item.project === currentAcronym);
+
+    return (
+        <div className="relative flex-grow sm:flex bg-primary w-full">
+            <div className="flex flex-col">
+                <SideNav
+                    title="All media"
+                    navList={allProjects.map((project) => project.acronym)}
+                    currentType={currentAcronym}
+                    onTypeChange={setCurrentAcronym}
+                />
+            </div>
+
+            <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5'>
+                {filteredGalleryItems.map(({ id, src, type }) => (
+                    <div key={id} className='shadow-md shadow-gray-600 rounded-lg overflow-hidden'>
+                        {type === 'image' && (
+                            <img src={src} alt='' className='rounded-md duration-200 hover:scale-105' onClick={() => handleMediaClick({ id, src, type })} />
+                        )}
+                        {type === 'video' && (
+                            <video controls className='rounded-md'>
+                                <source src={src} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        )}
+                    </div>
+                ))}
+            </div>
+
+            {isOverlayVisible && (
+                <div className="overlay" onClick={closeOverlay}>
+                    <div className="overlay-content" onClick={handleOverlayContentClick}>
+                        {selectedMedia && selectedMedia.type === 'image' && (
+                            <img src={selectedMedia.src} alt="Selected" />
+                        )}
+                        {selectedMedia && selectedMedia.type === 'video' && (
+                            <video controls autoPlay className='rounded-md'>
+                                <source src={selectedMedia.src} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        )}
+                        <button onClick={closeOverlay}>X</button>
+                    </div>
+                </div>
+            )}
         </div>
-        ))}
-      </div>
-    </div>
-  );
+    );
 };
+
 export default Media;
