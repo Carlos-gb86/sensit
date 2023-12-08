@@ -2,7 +2,7 @@ import { Carousel } from "@material-tailwind/react";
 
 export function CarouselTail({ imageUrls }) {
   return (
-    <Carousel className="rounded-xl" dots={true}>
+    <Carousel className="rounded-xl">
       {imageUrls.map((url, idx) => (
         <img
           key={idx}

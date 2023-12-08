@@ -1,7 +1,17 @@
-import React, { useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { CarouselTail } from "./CarouselTail";
 
 const ProjectInfo = ({ project }) => {
+  const summaryRef = useRef(null);
+  const publicationsRef = useRef(null);
+  const [maxHeight, setMaxHeight] = useState(0);
+
+  useEffect(() => {
+    if (summaryRef.current) {
+      setMaxHeight(summaryRef.current.clientHeight);
+    }
+  }, []);
+
   const imageUrls = [
     "src/assets/galleryImages/postDOFS.jpg",
     "src/assets/galleryImages/postDOFS.jpg",
@@ -11,8 +21,22 @@ const ProjectInfo = ({ project }) => {
   // const projectImage = projectImages[project.image];
 
   // Sample long content for the Publications section
-  const longContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum vestibulum arcu, sit amet maximus arcu blandit sit amet. Sed ac quam justo. Proin vitae efficitur elit, eu dictum arcu. Aenean a metus quis arcu eleifend suscipit. Sed feugiat sapien eget odio hendrerit, non ultrices eros sollicitudin. Suspendisse potenti. Vivamus scelerisque urna nec tortor bibendum, in volutpat est cursus. Nulla facilisi. Donec in libero eu tellus facilisis mattis.";
+  const longContent = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Quisque bibendum vestibulum arcu, sit amet maximus arcu blandit sit amet.
+     Sed ac quam justo. Proin vitae efficitur elit, eu dictum arcu. Aenean a metus
+      quis arcu eleifend suscipit. Sed feugiat sapien eget odio hendrerit,
+       non ultrices eros sollicitudin. Suspendisse potenti. Vivamus scelerisque
+        urna nec tortor bibendum, in volutpat est cursus. Nulla facilisi. Donec
+        Quisque bibendum vestibulum arcu, sit amet maximus arcu blandit sit amet.
+     Sed ac quam justo. Proin vitae efficitur elit, eu dictum arcu. Aenean a metus
+      quis arcu eleifend suscipit. Sed feugiat sapien eget odio hendrerit,
+       non ultrices eros sollicitudin. Suspendisse potenti. Vivamus scelerisque
+        urna nec tortor bibendum, in volutpat est cursus. Nulla facilisi. Donec
+        Sed ac quam justo. Proin vitae efficitur elit, eu dictum arcu. Aenean a metus
+      quis arcu eleifend suscipit. Sed feugiat sapien eget odio hendrerit,
+       non ultrices eros sollicitudin. Suspendisse potenti. Vivamus scelerisque
+        urna nec tortor bibendum, in volutpat est cursus. Nulla facilisi. Donec
+         in libero eu tellus facilisis mattis.`;
 
   return (
     <div className="p-6 flex-grow">
@@ -20,11 +44,11 @@ const ProjectInfo = ({ project }) => {
         {project.name}
       </h2>
       <div className="flex flex-col md:flex-row">
-        <div className="px-10 md:w-1/2 md:px-4 max-h-[420px]">
-          <CarouselTail imageUrls={imageUrls} />
+        <div className="flex flex-col px-10 md:w-1/2 md:px-4 max-h-[420px]">
+          <CarouselTail className="flex-grow" imageUrls={imageUrls} />
         </div>
 
-        <ul className="pl-10 md:pl-4 mt-4 md:mt-0 text-white">
+        <ul className="pl-10 md:pl-4 mt-6 md:mt-0 text-white">
           {project.acronym && (
             <li className="pb-4">
               <span className="font-bold">Acronym:</span> {project.acronym}
@@ -90,23 +114,29 @@ const ProjectInfo = ({ project }) => {
           )}
         </ul>
       </div>
-      <div className="flex flex-col md:flex-row mt-4">
-        <div className="flex-grow pr-4">
+
+      <div className="relative w-full flex flex-col md:flex-row mt-6">
+        <div className="flex-shrink-0 md:w-1/2 pr-4">
           <h3 className="font-semibold text-xl mb-2 text-white pl-10 md:pl-4">
             Summary:
           </h3>
-          <p className="text-white text-justify pl-10 md:pl-4 w-full">
+          <p
+            ref={summaryRef}
+            className="text-white text-justify pl-10 md:pl-4 w-full"
+          >
             {project.summary}
           </p>
         </div>
 
-        <div className="flex-grow mt-4 pr-4 overflow-y-auto max-h-[420px]">
+        <div ref={publicationsRef} className="flex-auto">
           <h3 className="font-semibold text-xl mb-2 text-white pl-10 md:pl-4">
             Publications:
           </h3>
-          <p className="text-white text-justify pl-10 md:pl-4 w-full">
-            {longContent}
-          </p>
+          <div style={{ maxHeight: `${maxHeight}px`, overflowY: "auto" }}>
+            <p className="text-white text-justify pl-10 md:pl-4 w-full">
+              {longContent}
+            </p>
+          </div>
         </div>
       </div>
     </div>
