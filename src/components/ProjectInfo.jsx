@@ -20,7 +20,9 @@ const ProjectInfo = ({ project }) => {
         {project.name}
       </h2>
       <div className="flex flex-col md:flex-row">
-        <CarouselTail className={"w-1/2"} imageUrls={imageUrls} />
+        <div className="px-10 md:w-1/2 md:px-4 max-h-[420px]">
+          <CarouselTail imageUrls={imageUrls} />
+        </div>
 
         <ul className="pl-10 md:pl-4 mt-4 md:mt-0 text-white">
           {project.acronym && (
