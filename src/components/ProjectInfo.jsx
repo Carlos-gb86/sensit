@@ -12,12 +12,25 @@ const ProjectInfo = ({ project }) => {
     }
   }, []);
 
-  const imageUrls = [
-    "src/assets/galleryImages/postDOFS.jpg",
-    "src/assets/galleryImages/postDOFS.jpg",
-    "src/assets/galleryImages/postDOFS.jpg",
-    // Add more image URLs as needed
-  ];
+  const [imageUrls, setImageUrls] = useState([]);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      // Import all image files from the parent directory and subdirectories
+      const imageModules = import.meta.globEager('../assets/projectImages/**/*.+(jpg|jpeg|png)');
+
+      const paths = Object.entries(imageModules)
+        .filter(([path, _]) => path.includes(`/${project.acronym}/`)) // Filter by project acronym
+        .map(([_, module]) => module.default);
+
+      setImageUrls(paths);
+    };
+
+    loadImages();
+  }, [project.acronym]);
+
+console.log(imageUrls); 
+
   // const projectImage = projectImages[project.image];
 
   // Sample long content for the Publications section
