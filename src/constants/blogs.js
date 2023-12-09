@@ -37,7 +37,7 @@ export const blogs = [
       "Thanks to Trafikverket, and more specially to the energetic Anna Teike, we had the opportunity of putting aside our beloved and exiting lab, to go to the Västlänken site at Korsvägen and deploy some of sensors in a critical column key for the functioning of teh structural system that will serve us during many years. Looking forward to start the measurements ;). Special thanks to the sensor specialist August and Anna to facilitate this to happen. More to come! <strong>Stay tuned!</strong> <em>/thesensitproject</em>",
     category: "Testing",
     date: "5-Oct-2023",
-    image: "/src/assets/Images/Screenshot.png",
+    image: "https://thesensitproject.com/assets/Images/Screenshot.png",
     acronym: "SensIT 2.0",
   },
   {
