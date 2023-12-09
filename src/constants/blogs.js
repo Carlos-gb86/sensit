@@ -3,7 +3,7 @@ export const blogs = [
     key: "01",
     title: "Best ideas grow among rice",
     description:
-      "In Luleå they say that best ideas grow below zero, in SensIT we say that the best ones does among rice, and the best rice (with full respect to Valencia) is always at Rasmus' yard; unfortunately the season is over and we will need to wait some darkness and snow before we can open the new one. The ideas will not stop though! <em>/thesensitproject</em>",
+      "In Luleå they say that best ideas grow below zero, in SensIT we say that the best ones does it among rice, and the best rice (with full respect to Valencia) is always at Rasmus' yard; unfortunately the season is over and we will need to wait some darkness and snow before we can open the new one. <strong>The ideas will not stop though!</strong> <em>/thesensitproject</em>",
     category: "Fun",
     date: "11-Ago-2023",
     image: "src/assets/Images/IMG_1895 Large.jpeg",
@@ -35,7 +35,7 @@ export const blogs = [
     key: "04",
     title: "Beyond the lab, Reality",
     description:
-      "Thanks to Trafikverket, and more specially to the energetic Anna Teike, we had teh opportunity of putting aside our beloved and exiting lab, to go to the Västlänken site at Korsvägen and deploy some of sensors in a critical column key for the functioning of teh structural system that will serve us during many years. Looking forward to start the measurements ;). Special thanks to the sensor specialist August and Anna to facilitate this to happen. More to come! Stay tuned! <em>/thesensitproject</em>",
+      "Thanks to Trafikverket, and more specially to the energetic Anna Teike, we had the opportunity of putting aside our beloved and exiting lab, to go to the Västlänken site at Korsvägen and deploy some of sensors in a critical column key for the functioning of teh structural system that will serve us during many years. Looking forward to start the measurements ;). Special thanks to the sensor specialist August and Anna to facilitate this to happen. More to come! <strong>Stay tuned!</strong> <em>/thesensitproject</em>",
     category: "Testing",
     date: "5-Oct-2023",
     image: "src/assets/Images/Screenshot 2023-12-09 at 23.43.14.png",
