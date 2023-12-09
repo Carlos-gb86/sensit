@@ -1,6 +1,6 @@
 const SideNav = ({ title, navList, currentType, onTypeChange }) => {
   return (
-    <div className="bg-primary flex justify-center sm:block text-white sm:p-0 pl-5 border-t-2 sm:border-t-0 sm:border-r-2 border-gray-500">
+    <div className="bg-primary flex justify-center text-center mb-4 sm:text-left sm:block text-white sm:p-0 pl-5 border-y-2 sm:border-y-0 sm:border-r-2 border-gray-500">
       <h1 className="hidden sm:block w-52 pl-6 font-poppins font-semibold text-2xl mb-3">
         {title}
       </h1>

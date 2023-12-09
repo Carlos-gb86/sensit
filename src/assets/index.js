@@ -1,4 +1,3 @@
-
 import logotext from "./logo-text.svg";
 import menu from "./menu.svg";
 import close from "./close.svg";
@@ -18,27 +17,27 @@ import wsp from "./WSP_logo.png";
 import thomas from "./Thomas_logo.png";
 import trafikverket from "./Trafikverket_logo.svg";
 import footbridge from "./footbridge.jpeg";
-
-
+import infographic from "../assets/SensIT_v2.png";
 
 export {
- logotext,
- menu,
- close,
- carlos,
- rasmus,
- daniel,
- ignasi,
- facebook,
- instagram,
- linkedin,
- twitter,
- arrowUp,
- hero,
- chalmers,
- wsp,
- ncc,
- thomas,
- trafikverket,
- footbridge,
+  logotext,
+  menu,
+  close,
+  carlos,
+  rasmus,
+  daniel,
+  ignasi,
+  facebook,
+  instagram,
+  linkedin,
+  twitter,
+  arrowUp,
+  hero,
+  chalmers,
+  wsp,
+  ncc,
+  thomas,
+  trafikverket,
+  footbridge,
+  infographic,
 };
