@@ -20,12 +20,10 @@ const Projects = () => {
   }, [currentAcronym]);
 
   const handleProjectChange = (acronym) => setCurrentAcronym(acronym);
-console.log('projectsR acronyms:', projectsR.map(p => p.acronym));
-console.log('projectsE acronyms:', projectsE.map(p => p.acronym));
 
-
-  return (
-    <div className="relative flex-grow flex sm:flex-row flex-col-reverse bg-primary w-full">
+ return (
+    <div className="relative flex-grow sm:flex bg-primary w-full">
+      {/* Left Side Navigation */}
       <div className="flex flex-col">
         <SideNav
           title="Research"
@@ -41,9 +39,11 @@ console.log('projectsE acronyms:', projectsE.map(p => p.acronym));
         />
       </div>
 
-      <ProjectInfo project={currentProject} />
+      {/* Right Side Content */}
+      <div className="flex-grow flex flex-col">
+        <ProjectInfo project={currentProject} />
+      </div>
     </div>
   );
 };
-
 export default Projects;

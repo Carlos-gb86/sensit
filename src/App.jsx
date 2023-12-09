@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Publications from "./pages/Publications";
 import News from "./pages/News";
+import Media from "./pages/Media";
 import About from "./pages/About";
 
 const ScrollToTop = () => {
@@ -45,6 +46,7 @@ const App = () => {
             <Route path="projects" element={<Projects />} />
             <Route path="publications" element={<Publications />} />
             <Route path="news" element={<News />} />
+            <Route path="media" element={<Media />} />
             <Route path="about" element={<About />} />
           </Routes>
           <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>

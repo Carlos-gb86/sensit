@@ -23,6 +23,11 @@ export const navLinks = [
     path: "news",
   },
   {
+    id: "media",
+    title: "Media",
+    path: "media",
+  },
+  {
     id: "about",
     title: "About",
     path: "about",
