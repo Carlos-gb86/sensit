@@ -6,7 +6,7 @@ export const blogs = [
       "In Luleå they say that best ideas grow below zero, in SensIT we say that the best ones does it among rice, and the best rice (with full respect to Valencia) is always at Rasmus' yard; unfortunately the season is over and we will need to wait some darkness and snow before we can open the new one. <strong>The ideas will not stop though!</strong> <em>/thesensitproject</em>",
     category: "Fun",
     date: "11-Ago-2023",
-    image: "/src/assets/Images/IMG_1895 Large.jpeg",
+    image: process.env.PUBLIC_URL + "/src/assets/Images/IMG_1895 Large.jpeg",
     acronym: "SensIT",
   },
   {
