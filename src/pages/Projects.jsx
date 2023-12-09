@@ -5,26 +5,28 @@ import { projectsR, projectsE } from "../constants/projects";
 
 const Projects = () => {
   const initialAcronym = "SensIT";
-  const initialProject = projectsR.find(p => p.acronym === initialAcronym) 
-                     || projectsE.find(p => p.acronym === initialAcronym) 
-                     || {};
+  const initialProject =
+    projectsR.find((p) => p.acronym === initialAcronym) ||
+    projectsE.find((p) => p.acronym === initialAcronym) ||
+    {};
 
   const [currentAcronym, setCurrentAcronym] = useState(initialAcronym);
   const [currentProject, setCurrentProject] = useState(initialProject);
 
   useEffect(() => {
-    let foundProject = projectsR.find(project => project.acronym === currentAcronym)
-                    || projectsE.find(project => project.acronym === currentAcronym);
+    let foundProject =
+      projectsR.find((project) => project.acronym === currentAcronym) ||
+      projectsE.find((project) => project.acronym === currentAcronym);
 
     setCurrentProject(foundProject || {});
   }, [currentAcronym]);
 
   const handleProjectChange = (acronym) => setCurrentAcronym(acronym);
 
- return (
+  return (
     <div className="relative flex-grow sm:flex bg-primary w-full">
       {/* Left Side Navigation */}
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-y-4">
         <SideNav
           title="Research"
           navList={projectsR.map((project) => project.acronym)}
