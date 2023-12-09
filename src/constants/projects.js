@@ -111,6 +111,20 @@ export const projectsR = [
     link: "https://research.chalmers.se/en/project/10422",
   },
   {
+    acronym: "dAI Design",
+    name: "Data-informed design with the help of artificial intelligence",
+    mainApplicant: "Rasmus Rempling",
+    leadResearcher: "Linda Cusumano",
+    yearStart: 2021,
+    yearEnd: "2026",
+    founder: ["SBUF", "NCC"],
+    mainInstitution: "Chalmers",
+    partners: ["NCC", "WSP"],
+    summary: `Digitaliseringståget accelererar och byggbranschen har nu chansen att anta teknik och konvertera till digitala lösningar. Dagens industriella arbetssätt (och morgondagens – robotisering) och processer inom produktionen skapar en enorm datakälla. I den källan finns potentialen att skapa bättre förutsättningar för byggbara lösningar i projekteringen och minska risktagandet i anbudsskedet. I föreslaget industridoktorandprojekt vill vi gå på djupet i frågan med ett entreprenörsperspektiv med tyngdpunkt i anbudsskedet. Vi vill utröna möjligheten att gifta ihop projekteringskunskap och produktionskunskap mha data och digital information för att därigenom säkerställa byggbara lösningar. Denna ansökan avser att genomförs som ett industridoktorandprojekt vid Avdelningen för konstruktionsteknik, Chalmers Tekniska Högskola. Projektet avser att genomföras fram till Lic som ett första steg. Projektresultaten kommer kunna användas av entreprenörer och konstruktörer vid projektering av fastigheter där det finns ett särskilt intresse för produktutveckling och effektivisering i anbuds- och konceptuellaskeden. Resultatet är en process- och verktygsinnovation. Primära mottagare av resultat är främst entreprenörer i arbetet med att effektivt projektera och lämna anbud inom fastighetssektorn. Projektet knyter an till SBUF:s mål och inriktning om att ge ett mervärde för kunden, digitala affärer och arbetssätt, effektivare byggprocess och en långsiktigt hållbar tillväxt inom byggsektorn.`,
+    image: "sensit2Project",
+    link: "https://research.chalmers.se/en/project/9993",
+  },
+  {
     acronym: "STANDBro",
     name: "Industriell konstruktion, upphandling och produktion av byggnadsverk och andra tekniska detaljer",
     mainApplicant: ["Rasmus Rempling"],
@@ -121,6 +135,7 @@ export const projectsR = [
     mainInstitution: "Chalmers",
     summary: `Building new infrastructure is an essential part of developing the society. In the same time, construction industry is behind other industries in productivity. This research investigates the potential to build bridges in a more standardizes way compared to what is traditionally done in Sweden today. The goal is to show that is possible to increase productivity and simultaneously optimize bridges which reduces the cost and the climate impact.`,
     image: "cyberbridge",
+    link: " https://research.chalmers.se/en/project/9959",
   },
   {
     acronym: "SensIT AR",

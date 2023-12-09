@@ -35,13 +35,24 @@ export const users = [
   {
     name: "Johan Lagerkvist",
     jobTitle: "Industrial PhD Student",
-    description: `August is the PhD student leading the research for the STANDBRO project
+    description: `Johan is the PhD student leading the research for the STANDBRO project
                              at Chalmers University of Technology and Trafikverket.`,
     image:
       "https://www.chalmers.se/_next/image/?url=https%3A%2F%2Fcms.www.chalmers.se%2FMedia%2Fgdildj0e%2Fbergenda.jpg%3Fwidth%3D600%26height%3D600%26rnd%3D133260636856470000%26quality%3D60%26format%3Dwebp&w=3840&q=75",
     githubUrl: "https://github.com/johndoe",
     linkedinUrl: "https://www.linkedin.com/in/johan-lagerkvist-8b05285b/",
     researchGateUrl: "https://www.researchgate.net/profile/Johan-Lagerkvist-2",
+  },
+  {
+    name: "Linda Cusumano",
+    jobTitle: "Industrial PhD Student",
+    description: `Linda is the PhD student leading the research for the  dAI Design project
+                             at Chalmers University of Technology and NCC.`,
+    image:
+      "https://media.licdn.com/dms/image/C5603AQGseL5i060buQ/profile-displayphoto-shrink_400_400-alternative/0/1529166873967?e=1707350400&v=beta&t=YPCmKN5Dymjtvrz2qUFdR8v1H0pbHxZSrf9e7CogNB8",
+    githubUrl: "https://github.com/johndoe",
+    linkedinUrl: "https://www.linkedin.com/in/linda-cusumano-290980165/",
+    researchGateUrl: "https://www.researchgate.net/profile/Linda_Cusumano",
   },
   {
     name: "August Jansson",
