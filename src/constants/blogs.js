@@ -48,7 +48,7 @@ export const blogs = [
       "Getting ready for the upcomminf event I have installed an 8.5 meters postensioned beam in my living room/kitchen :). Testing the new AR environment! Looking forward to the 4th of December for the real test! <em>/thesensitproject</em>",
     category: "Technology",
     date: "29-Nov-2023",
-    image: "src/assets/Images/55D34258-118D-445B-9687-06B1828D0514 Large.jpeg",
+    image: "public/55D34258-118D-445B-9687-06B1828D0514 Large.jpeg",
     acronym: "PostDOFS",
   },
   {
