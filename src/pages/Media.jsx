@@ -99,7 +99,7 @@ const Media = () => {
           }}
         >
           <div
-            className="overlay-content w-[80%] h-[80%] flex flex-col justify-center align-middle"
+            className="overlay-content w-[80%] h-[80%] mb-10 flex flex-col"
             onClick={() => {
               handleOverlayContentClick();
             }}
@@ -108,7 +108,7 @@ const Media = () => {
               <img
                 src={selectedMedia.src}
                 alt="Selected"
-                className="object-contain"
+                className="object-contain h-full"
               />
             )}
             {selectedMedia && selectedMedia.type === "video" && (
@@ -118,7 +118,7 @@ const Media = () => {
               </video>
             )}
             <button
-              className="h-8 text-white mt-4 text-center"
+              className="w-full h-8 text-white mt-4 text-center"
               onClick={() => closeOverlay()}
             >
               X Close
