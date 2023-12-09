@@ -111,6 +111,18 @@ export const projectsR = [
     link: "https://research.chalmers.se/en/project/10422",
   },
   {
+    acronym: "STANDBro",
+    name: "Industriell konstruktion, upphandling och produktion av byggnadsverk och andra tekniska detaljer",
+    mainApplicant: ["Rasmus Rempling"],
+    leadResearcher: "Johan Lagerkvist",
+    yearStart: 2020,
+    yearEnd: "2025",
+    partners: ["Trafikverket"],
+    mainInstitution: "Chalmers",
+    summary: `Building new infrastructure is an essential part of developing the society. In the same time, construction industry is behind other industries in productivity. This research investigates the potential to build bridges in a more standardizes way compared to what is traditionally done in Sweden today. The goal is to show that is possible to increase productivity and simultaneously optimize bridges which reduces the cost and the climate impact.`,
+    image: "cyberbridge",
+  },
+  {
     acronym: "SensIT AR",
     name: "Collaborative Augmented Reality for increased efficiency and interactivity of infrastructure maintenance and inspection",
     mainApplicant: "Rasmus Rempling",
