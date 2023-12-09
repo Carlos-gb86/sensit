@@ -41,13 +41,14 @@ export default function MuiCard({ id, blog, expanded, handleExpandBlog }) {
       <img className="w-full" src={image} alt="blog image" />
 
       <div className="flex flex-col justify-between h-full">
-        <div className="px-6 py-4">
-          {expanded ? (
-            <p className="text-gray-700 text-base">{description}</p>
-          ) : (
-            <p className="text-gray-700 text-base">{shortDescription}</p>
-          )}
-        </div>
+<div className="px-6 py-4">
+  {expanded ? (
+    <p className="text-gray-700 text-base" dangerouslySetInnerHTML={{ __html: description }}></p>
+  ) : (
+    <p className="text-gray-700 text-base" dangerouslySetInnerHTML={{ __html: shortDescription }}></p>
+  )}
+</div>
+
 
         <div className="flex px-6 pt-4 pb-2">
           {isClicked ? (

@@ -1,40 +1,66 @@
 export const blogs = [
   {
     key: "01",
-    title: "Exciting Developments in Tech",
+    title: "Best ideas grow among rice",
     description:
-      "In this rapidly advancing world of technology, it can be hard to keep up with the latest trends. But worry not, because we've compiled the most significant tech developments in this comprehensive blog post. Dive in to learn more about everything from AI to blockchain and beyond.",
-    category: "Technology",
-    date: "15-Jul-2023",
-    image: "https://source.unsplash.com/600x400/?technology",
+      "In Luleå they say that best ideas grow below zero, in SensIT we say that the best ones does among rice, and the best rice (with full respect to Valencia) is always at Rasmus' yard; unfortunately the season is over and we will need to wait some darkness and snow before we can open the new one. The ideas will not stop though! <em>/thesensitproject</em>",
+    category: "Fun",
+    date: "11-Ago-2023",
+    image: "src/assets/Images/IMG_1895 Large.jpeg",
+    acronym: "SensIT",
   },
   {
     key: "02",
-    title: "Embracing the Future: AI in Everyday Life",
+    title: "Who says that structures are not alive?",
     description:
-      "Artificial Intelligence (AI) is a driving force in many sectors of the economy. This article explores how AI is reshaping everyday life, from transportation to healthcare and beyond.",
-    category: "Technology",
-    date: "11-Mar-2020",
-    image: "https://source.unsplash.com/600x400/?AI,technology",
+      'The beat of the steel... <a href="https://play.chalmers.se/media/Fatigue_test/0_ef2ywz8p"><em>link to the video!</em></a>  <em>/thesensitproject</em>',
+    category: "FatCRACK",
+    date: "21-Sep-2023",
+    image:
+      "src/assets/projectImages/FatCRACK/Screenshot 2023-12-10 at 00.09.25.png",
+    acronym: "FatCRACK",
   },
 
   {
     key: "03",
-    title: "The Wonders of Space: Our Journey Beyond Earth",
+    title: 'Exploring new "lightweight" horizons',
     description:
-      "Space, the final frontier. This article dives into the challenges and triumphs of humanity's exploration of the cosmos. From the moon landing to the Mars rover, join us on this incredible journey.",
-    category: "Science",
-    date: "24-Sep-2019",
-    image: "https://source.unsplash.com/600x400/?space,cosmos",
+      "We are bringing all our knowledge realated to DOFS in concrete in a new are for us! and we are exited :)... exploring the new limits, more info comming soon! <em>/thesensitproject</em>",
+    category: "Testing",
+    date: "20-Sep-2023",
+    image: "src/assets/Images/Screenshot 2023-12-09 at 23.54.09.png",
+    acronym: "FatCRACK",
   },
-
   {
     key: "04",
-    title: "The Secret Life of Pets: What They Do When You're Away",
+    title: "Beyond the lab, Reality",
     description:
-      "Have you ever wondered what your pets do when you're not around? This article uncovers the secret life of pets, from their playful antics to their unique personalities.",
-    category: "Animals",
-    date: "02-Jan-2021",
-    image: "https://source.unsplash.com/600x400/?pets,animals",
+      "Thanks to Trafikverket, and more specially to the energetic Anna Teike, we had teh opportunity of putting aside our beloved and exiting lab, to go to the Västlänken site at Korsvägen and deploy some of sensors in a critical column key for the functioning of teh structural system that will serve us during many years. Looking forward to start the measurements ;). Special thanks to the sensor specialist August and Anna to facilitate this to happen. More to come! Stay tuned! <em>/thesensitproject</em>",
+    category: "Testing",
+    date: "5-Oct-2023",
+    image: "src/assets/Images/Screenshot 2023-12-09 at 23.43.14.png",
+    acronym: "SensIT 2.0",
+  },
+  {
+    key: "05",
+    title: "Beyond reality, Augmented Reality",
+    description:
+      "Getting ready for the upcomminf event I have installed an 8.5 meters postensioned beam in my living room/kitchen :). Testing the new AR environment! Looking forward to the 4th of December for the real test! <em>/thesensitproject</em>",
+    category: "Technology",
+    date: "29-Nov-2023",
+    image: "src/assets/Images/55D34258-118D-445B-9687-06B1828D0514 Large.jpeg",
+    acronym: "PostDOFS",
+  },
+  {
+    key: "06",
+    title:
+      "Demo within the PostDOFS project, testing of a Postensioned Fiber Reinforcef Concrete beam",
+    description:
+      "In this demo we put toguether the different adavancements we have made in the integration of Augmented Reality (AR) solutions for structural engineering combined with top-notch monitoring based on Distributed Optic Fiber Sensors and top-leading post-processing algorithms for real-time analysis and visualization. The test was carried out in the context of a project funded by SBUF that consisted in a comparison of the new proposals for the used of FRC introduced in the Eurocodes aiming a more sustainable structural solutions. The test was held in the context of the SBUF council visit to Chalmers University and a seminar within our centre 'konstruktionscentrum' that strives for the promotion of our beloved profession. In the demo an 8.5 meters Postensioned Fiber Reinforced beam was tested to failure under a four-point bending configurarion, which benefits of a constant moment central region within loading points. During the test cyclic loads where introduced and the behaviour of the beam was shown through our AR app, framework taht offers the posibility of real-time tracking and visualisation of crack onset and development, deflection and strain distribution along the element. Making the invisible visible. More than 30 attendess could enjoy a singular and changelling test in our leading structural lab at Chalmers University of Technology that enforced us to the limit to coordinate all parts toguether, seamelessly working. Check our Projects and Media sections for more info :). Thank you all for coming! <em>/thesensitproject</em>",
+    category: "Testing",
+    date: "4-Dic-2023",
+    image:
+      "src/assets/projectImages/PostDOFS/WhatsApp Image 2023-12-08 at 00.09.38.jpeg",
+    acronym: "PostDOFS",
   },
 ];
