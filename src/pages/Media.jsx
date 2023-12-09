@@ -118,7 +118,7 @@ const Media = () => {
               </video>
             )}
             <button
-              className="h-8 text-white absolute bottom-[-5%] right-[50% text-center]"
+              className="h-8 text-white absolute bottom-[-5%] right-[50%] text-center"
               onClick={() => closeOverlay()}
             >
               X Close
