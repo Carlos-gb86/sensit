@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import SideNav from "../components/SideNav";
-import BlogCard from "../components/BlogCard";
 import MuiCard from "../components/MuiCard";
 import { blogs } from "../constants/blogs";
 
