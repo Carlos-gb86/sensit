@@ -4,23 +4,26 @@ import { logotext, close, menu } from "../assets";
 import { navLinks } from "../constants";
 
 const Navbar = () => {
-  
   const [toggle, setToggle] = useState(false);
 
   const navigate = useNavigate();
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      
-      <img onClick={()=>navigate('/')} src={logotext} alt="sensIT" className="w-[124px] h-[40px] cursor-pointer" />
+      <img
+        onClick={() => navigate("/")}
+        src={logotext}
+        alt="sensIT"
+        className="w-[124px] h-[40px] cursor-pointer"
+      />
 
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+      <ul className="list-none sm:ml-6 sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-secondary
             ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-            onClick={()=>navigate(nav.path)}
+            onClick={() => navigate(nav.path)}
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
           </li>
@@ -46,10 +49,10 @@ const Navbar = () => {
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px] text-dimWhite
                 ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
-                onClick={()=>{
-                  navigate(nav.path)
-                  setToggle(!toggle)}
-                }
+                onClick={() => {
+                  navigate(nav.path);
+                  setToggle(!toggle);
+                }}
               >
                 <a href={`#${nav.id}`}>{nav.title}</a>
               </li>
