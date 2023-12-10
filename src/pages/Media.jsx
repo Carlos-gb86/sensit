@@ -99,17 +99,19 @@ const Media = () => {
           }}
         >
           <div
-            className="overlay-content w-[80%] h-[80%] mb-10 flex flex-col"
+            className="overlay-content w-[80%] h-[80%] flex flex-col"
             onClick={() => {
               handleOverlayContentClick();
             }}
           >
             {selectedMedia && selectedMedia.type === "image" && (
-              <img
-                src={selectedMedia.src}
-                alt="Selected"
-                className="object-contain h-full"
-              />
+              <div className="h-[90%] flex justify-center align-middle">
+                <img
+                  src={selectedMedia.src}
+                  alt="Selected"
+                  className="object-contain"
+                />
+              </div>
             )}
             {selectedMedia && selectedMedia.type === "video" && (
               <video controls autoPlay className="rounded-md">

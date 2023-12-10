@@ -6,14 +6,30 @@ import {
   TwitterIcon,
   LinkedinIcon,
 } from "react-share";
-import { FaAngleDown, FaShare, FaRegTimesCircle } from "react-icons/fa";
+import {
+  FaAngleDown,
+  FaShare,
+  FaRegTimesCircle,
+  FaIcons,
+  FaReact,
+  FaWrench,
+  FaMountain,
+} from "react-icons/fa";
 import { useState } from "react";
+
+const icons = {
+  Technology: FaReact,
+  Fun: FaIcons,
+  Testing: FaWrench,
+  Field: FaMountain,
+};
 
 export default function MuiCard({ id, blog, expanded, handleExpandBlog }) {
   const [isClicked, setIsClicked] = useState(false);
   const { title, description, category, date, image } = blog;
   const shortDescription = `${description.substring(0, 100)}...`;
   const url = "https://www.thesensitproject.com/";
+  const CategoryIcon = icons[category]; // Get the correct icon for the category
 
   return (
     <div
@@ -26,9 +42,11 @@ export default function MuiCard({ id, blog, expanded, handleExpandBlog }) {
     >
       <div className="flex items-center p-2">
         <div className="flex-shrink-0">
-          <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">
-            {category.charAt(0).toUpperCase()}
-          </div>
+          {CategoryIcon && (
+            <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">
+              <CategoryIcon />
+            </div>
+          )}
         </div>
         <div className="ml-4">
           <div className="text-lg leading-5 font-medium text-gray-900">
@@ -41,14 +59,19 @@ export default function MuiCard({ id, blog, expanded, handleExpandBlog }) {
       <img className="w-full" src={image} alt="blog image" />
 
       <div className="flex flex-col justify-between h-full">
-<div className="px-6 py-4">
-  {expanded ? (
-    <p className="text-gray-700 text-base" dangerouslySetInnerHTML={{ __html: description }}></p>
-  ) : (
-    <p className="text-gray-700 text-base" dangerouslySetInnerHTML={{ __html: shortDescription }}></p>
-  )}
-</div>
-
+        <div className="px-6 py-4">
+          {expanded ? (
+            <p
+              className="text-gray-700 text-base"
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></p>
+          ) : (
+            <p
+              className="text-gray-700 text-base"
+              dangerouslySetInnerHTML={{ __html: shortDescription }}
+            ></p>
+          )}
+        </div>
 
         <div className="flex px-6 pt-4 pb-2">
           {isClicked ? (
