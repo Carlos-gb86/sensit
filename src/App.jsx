@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
-import {
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./style";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
