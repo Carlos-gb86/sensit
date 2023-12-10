@@ -33,6 +33,7 @@ const monthNames = [
   "Nov",
   "Dec",
 ];
+
 const sortedBlogs = [...blogs];
 sortedBlogs.sort((a, b) => {
   const [dayA, monthA, yearA] = a.date.split("-");
