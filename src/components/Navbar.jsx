@@ -1,17 +1,15 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { logotext, close, menu } from "../assets";
 import { navLinks } from "../constants";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
-  const navigate = useNavigate();
-
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
       <img
-        onClick={() => navigate("/")}
+        onClick={() => setToggle(false)}
         src={logotext}
         alt="sensIT"
         className="w-[124px] h-[40px] cursor-pointer"
@@ -23,9 +21,8 @@ const Navbar = () => {
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-secondary
             ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-            onClick={() => navigate(nav.path)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <Link to={`/${nav.id}`}>{nav.title}</Link>
           </li>
         ))}
       </ul>
@@ -49,12 +46,10 @@ const Navbar = () => {
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px] text-dimWhite
                 ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
-                onClick={() => {
-                  navigate(nav.path);
-                  setToggle(!toggle);
-                }}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <Link to={`/${nav.id}`} onClick={() => setToggle(false)}>
+                  {nav.title}
+                </Link>
               </li>
             ))}
           </ul>

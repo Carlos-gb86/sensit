@@ -1,8 +1,7 @@
 import { useEffect } from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+
 import {
-  BrowserRouter,
-  Routes,
-  Route,
   useLocation,
   useNavigate,
 } from "react-router-dom";
@@ -29,12 +28,11 @@ const ScrollToTop = () => {
 
   return null;
 };
-
 const App = () => {
   return (
     <div className="bg-gradient-to-br from-blue-700 to-fuchsia-700">
       <div className="flex flex-col min-h-screen xxl:mx-[10%] xxxl:mx-[20%]">
-        <BrowserRouter>
+        <HashRouter>
           <ScrollToTop />
           <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`${styles.boxWidth}`}>
@@ -43,18 +41,18 @@ const App = () => {
           </div>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="publications" element={<Publications />} />
-            <Route path="news" element={<News />} />
-            <Route path="media" element={<Media />} />
-            <Route path="about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/media" element={<Media />} />
+            <Route path="/about" element={<About />} />
           </Routes>
           <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`${styles.boxWidth}`}>
               <Footer />
             </div>
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </div>
   );
