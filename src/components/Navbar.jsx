@@ -8,13 +8,14 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
+      <Link to="/">
       <img
         onClick={() => setToggle(false)}
         src={logotext}
         alt="sensIT"
         className="w-[124px] h-[40px] cursor-pointer"
       />
-
+</Link>
       <ul className="list-none sm:ml-6 sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
@@ -22,7 +23,9 @@ const Navbar = () => {
             className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-secondary
             ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
           >
-            <Link to={`/${nav.id}`}>{nav.title}</Link>
+            <Link to={nav.id === 'home' ? '/' : `/${nav.id}`}>
+              {nav.title}
+            </Link>
           </li>
         ))}
       </ul>
