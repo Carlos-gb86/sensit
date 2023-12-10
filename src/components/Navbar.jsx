@@ -15,7 +15,7 @@ const Navbar = () => {
         alt="sensIT"
         className="w-[124px] h-[40px] cursor-pointer"
       />
-</Link>
+      </Link>
       <ul className="list-none sm:ml-6 sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
