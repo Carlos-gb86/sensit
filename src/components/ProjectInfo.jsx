@@ -38,16 +38,7 @@ const ProjectInfo = ({ project }) => {
       quis arcu eleifend suscipit. Sed feugiat sapien eget odio hendrerit,
        non ultrices eros sollicitudin. Suspendisse potenti. Vivamus scelerisque
         urna nec tortor bibendum, in volutpat est cursus. Nulla facilisi. Donec
-        Quisque bibendum vestibulum arcu, sit amet maximus arcu blandit sit amet.
-     Sed ac quam justo. Proin vitae efficitur elit, eu dictum arcu. Aenean a metus
-      quis arcu eleifend suscipit. Sed feugiat sapien eget odio hendrerit,
-       non ultrices eros sollicitudin. Suspendisse potenti. Vivamus scelerisque
-        urna nec tortor bibendum, in volutpat est cursus. Nulla facilisi. Donec
-        Sed ac quam justo. Proin vitae efficitur elit, eu dictum arcu. Aenean a metus
-      quis arcu eleifend suscipit. Sed feugiat sapien eget odio hendrerit,
-       non ultrices eros sollicitudin. Suspendisse potenti. Vivamus scelerisque
-        urna nec tortor bibendum, in volutpat est cursus. Nulla facilisi. Donec
-         in libero eu tellus facilisis mattis.`;
+        Quisque bibendum vestibulum arcu, sit amet maximus arcu blandit sit amet.`;
 
   return (
     <div className="p-6 flex-grow">
@@ -93,9 +84,9 @@ const ProjectInfo = ({ project }) => {
               <span className="font-bold">End Year:</span> {project.yearEnd}
             </li>
           )}
-          {project.founder && (
+          {project.funder && (
             <li className="pb-4">
-              <span className="font-bold">Founder:</span> {project.founder}
+              <span className="font-bold">Founder:</span> {project.funder}
             </li>
           )}
           {project.mainInstitution && (
