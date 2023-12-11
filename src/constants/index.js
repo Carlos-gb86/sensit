@@ -18,14 +18,14 @@ export const navLinks = [
     path: "publications",
   },
   {
-    id: "news",
-    title: "News",
-    path: "news",
-  },
-  {
     id: "media",
     title: "Media",
     path: "media",
+  },
+  {
+    id: "news",
+    title: "News",
+    path: "news",
   },
   {
     id: "about",

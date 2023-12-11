@@ -40,8 +40,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/publications" element={<Publications />} />
-            <Route path="/news" element={<News />} />
             <Route path="/media" element={<Media />} />
+            <Route path="/news" element={<News />} />
             <Route path="/about" element={<About />} />
           </Routes>
           <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
