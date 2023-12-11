@@ -86,7 +86,7 @@ const ProjectInfo = ({ project }) => {
           )}
           {project.funder && (
             <li className="pb-4">
-              <span className="font-bold">Founder:</span> {project.funder}
+              <span className="font-bold">Funder:</span> {project.funder}
             </li>
           )}
           {project.mainInstitution && (
