@@ -23,9 +23,11 @@ const Navbar = () => {
             className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite hover:text-secondary
             ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
           >
-            <Link to={nav.id === 'home' ? '/' : `/${nav.id}`}>
+             {nav.id === 'news' 
+                ? <a href="https://blog.thesensitproject.com">{nav.title}</a>
+                :<Link to={nav.id === 'home' ? '/' : `/${nav.id}`}>
               {nav.title}
-            </Link>
+            </Link>}
           </li>
         ))}
       </ul>

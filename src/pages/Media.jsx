@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SideNav from "../components/SideNav";
 import { projectsR, projectsE } from "../constants/projects";
+import { FaLevelUpAlt } from "react-icons/fa";
 
 const Media = () => {
   const allProjects = [
@@ -11,6 +12,7 @@ const Media = () => {
 
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [selectedMedia, setSelectedMedia] = useState(null);
+  const [showButton, setShowButton] = useState(false);
 
   const handleMediaClick = (media) => {
     setSelectedMedia(media);
@@ -26,13 +28,35 @@ const Media = () => {
     e.stopPropagation();
   };
 
+  const handleGoToTop = function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const checkScrollTop = () => {
+      // Set the button to be visible if the scroll position is more than 500px
+      if (!showButton && window.pageYOffset > 500) {
+        setShowButton(true);
+      } else if (showButton && window.pageYOffset <= 500) {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", checkScrollTop);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("scroll", checkScrollTop);
+    };
+  }, [showButton]);
+
   const [currentAcronym, setCurrentAcronym] = useState("All");
   const [galleryItems, setGalleryItems] = useState([]);
 
   useEffect(() => {
     let items = [];
     const mediaModules = import.meta.globEager(
-      "../assets/projectImages/**/*.+(jpg|jpeg|png|mp4)"
+      "../assets/projectImages/**/*.+(jpg|jpeg|png|svg|mp4)"
     );
 
     allProjects.forEach((project) => {
@@ -66,7 +90,6 @@ const Media = () => {
           onTypeChange={setCurrentAcronym}
         />
       </div>
-
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:px-5">
         {filteredGalleryItems.map(({ id, src, type }) => (
           <div
@@ -90,6 +113,15 @@ const Media = () => {
           </div>
         ))}
       </div>
+      {showButton && (
+        <button
+          id="goTopButton"
+          onClick={handleGoToTop}
+          className="fixed bottom-[20px] left-[20px] z-[9] py-2 px-4 rounded-lg text-white hover:text-gray-900 hover:bg-gray-400 cursor-pointer flex outline-1 bg-gray-900"
+        >
+          Go to top <FaLevelUpAlt />
+        </button>
+      )}
 
       {isOverlayVisible && (
         <div
@@ -99,17 +131,19 @@ const Media = () => {
           }}
         >
           <div
-            className="overlay-content w-[80%] h-[80%] mb-10 flex flex-col"
+            className="overlay-content w-[80%] h-[80%] flex flex-col"
             onClick={() => {
               handleOverlayContentClick();
             }}
           >
             {selectedMedia && selectedMedia.type === "image" && (
-              <img
-                src={selectedMedia.src}
-                alt="Selected"
-                className="object-contain h-full"
-              />
+              <div className="h-[90%] flex justify-center align-middle">
+                <img
+                  src={selectedMedia.src}
+                  alt="Selected"
+                  className="object-contain"
+                />
+              </div>
             )}
             {selectedMedia && selectedMedia.type === "video" && (
               <video controls autoPlay className="rounded-md">

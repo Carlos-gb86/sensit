@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
-import {
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./style";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -43,8 +40,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/publications" element={<Publications />} />
-            <Route path="/news" element={<News />} />
             <Route path="/media" element={<Media />} />
+            <Route path="/news" element={<News />} />
             <Route path="/about" element={<About />} />
           </Routes>
           <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
