@@ -56,7 +56,7 @@ const Media = () => {
   useEffect(() => {
     let items = [];
     const mediaModules = import.meta.globEager(
-      "../assets/projectImages/**/*.+(jpg|jpeg|png|mp4)"
+      "../assets/projectImages/**/*.+(jpg|jpeg|png|svg|mp4)"
     );
 
     allProjects.forEach((project) => {
