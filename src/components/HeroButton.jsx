@@ -10,7 +10,7 @@ const HeroButton = () => {
     transition-transform duration-200 ease-in-out 
     transform hover:scale-110 hover:shadow-[15px_15px_35px_rgba(255,255,255,0.5)]`}
     >
-        <a  href={"https://sensit-portal.azurewebsites.net/"}
+        <a  href={"https://kt.ace.chalmers.se/"}
             className={`${styles.flexCenter} flex-col bg-primary w-[100%] h-[100%] rounded-full`}>
         <div className={`${styles.flexStart} flex-row`}>
             <p className="font-poppins font-medium text-[18px] leading-[23.4px]">
